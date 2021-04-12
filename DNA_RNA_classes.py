@@ -1,6 +1,7 @@
 # Общий класс биологических последовательностей
 class Bio_seq:
 
+    
     def __init__(self, seq):
         self.seq = seq
         self.i = 0
@@ -31,6 +32,7 @@ class Bio_seq:
 
 # Класс ДНК
 class DNA(Bio_seq):
+    
     complement_dictionary = {
         'A': 'T',
         'T': 'A',
@@ -52,8 +54,8 @@ class DNA(Bio_seq):
             error_letters = set_ref - set_inp
             raise TypeError(f'Неверная запись ДНК, удалите символы: {error_letters}')
 
-    # синтез РНК осуществляется в направлении 3'-5', т.е. по не кодирующей цепи ДНК. Таким образом транскрибируемая
-    # РНК идентична кодирующей цепи, с заменой T на U
+    # синтез РНК осуществляется в направлении 3'-5', т.е. по не кодирующей цепи ДНК.
+    # Таким образом транскрибируемая РНК идентична кодирующей цепи, с заменой T на U
     def transcribe(self):
         return RNA(self.seq.replace("T", "U").replace("t", "u"))
 
@@ -63,6 +65,7 @@ class DNA(Bio_seq):
 
 # Класс РНК
 class RNA(Bio_seq):
+    
     complement_dictionary = {
         'A': 'U',
         'U': 'A',
@@ -104,4 +107,3 @@ print(next(monkey), '2')
 print(next(monkey), '3')
 
 Tolstoy = DNA('Величайшие истины — самые простые.')
-
