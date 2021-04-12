@@ -1,6 +1,5 @@
 # Общий класс биологических последовательностей
 class Bio_seq:
-
     
     def __init__(self, seq):
         self.seq = seq
@@ -32,7 +31,6 @@ class Bio_seq:
 
 # Класс ДНК
 class DNA(Bio_seq):
-    
     complement_dictionary = {
         'A': 'T',
         'T': 'A',
@@ -65,7 +63,6 @@ class DNA(Bio_seq):
 
 # Класс РНК
 class RNA(Bio_seq):
-    
     complement_dictionary = {
         'A': 'U',
         'U': 'A',
