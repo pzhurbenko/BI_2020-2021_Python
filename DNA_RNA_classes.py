@@ -82,13 +82,13 @@ class RNA(Bio_seq):
         set_inp = set(self.complement_dictionary.keys())
         if not set_ref <= set_inp:
             error_letters = set_ref - set_inp
-            raise TypeError(f'Неверная запись ДНК, удалите символы: {error_letters}')
+            raise TypeError(f'Неверная запись РНК, удалите символы: {error_letters}')
 
     def reverse_complement(self):
         self.temp = self.seq.translate(str.maketrans(self.complement_dictionary))
         return self.temp[::-1]
 
-# пример работы
+# Пример работы
 monkey = DNA('ATGCCTGctgtcGaatgCNNnn')
 crocodile = RNA('AUGCgaucgGGAUcCCCaaaGCUAa')
 result = monkey.transcribe()
@@ -103,5 +103,6 @@ print(next(monkey), '1')
 print(next(monkey), '2')
 print(next(monkey), '3')
 
+# Проверка ошибки
 Tolstoy = DNA('Величайшие истины — самые простые.')
 
