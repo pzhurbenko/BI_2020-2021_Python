@@ -85,3 +85,26 @@ class RNA(NucleoSeq):
     def reverse_complement(self):
         self.temp = self.seq.translate(str.maketrans(self.complement_dictionary))
         return self.temp[::-1]
+    
+    
+    
+    
+# пример работы
+# monkey = DNA('ATGCCTGctgtcGaatgCNNnn')
+# crocodile = RNA('AUGCgaucgGGAUcCCCaaaGCUAa')
+# result = monkey.transcribe()
+#
+# check_upper = 'ATGCCTGctgtcGaatgCNNnn'.upper()
+# print(DNA(check_upper).gc_content())
+# print(monkey.gc_content())
+# print(monkey == crocodile)
+# print(result.reverse_complement())
+# test = list(result)[0:4]
+# for i in test:
+#     print(i)
+# print(next(monkey), '1')
+# print(next(monkey), '2')
+# print(next(monkey), '3')
+#
+# Tolstoy = DNA('Величайшие истины — самые простые.')
+    
