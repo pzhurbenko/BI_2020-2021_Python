@@ -19,7 +19,11 @@ class test_NucleoSeq(unittest.TestCase):
         self.assertEqual(next(DNA_next), 'G')
         self.assertEqual(next(DNA_next), 'C')
         self.assertEqual(next(DNA_next), 'T')
-
+        
+    def test_NucleoSeq_non_equal_different_classes (self):
+        self.assertNotEqual(DNA('AGCC'), RNA('AGCC'))
+        self.assertNotEqual(RNA('AGCU'), 'AGCU')
+        
 class test_DNA(unittest.TestCase):
 
     def test_contain_U(self):
