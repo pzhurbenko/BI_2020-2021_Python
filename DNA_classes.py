@@ -25,8 +25,8 @@ class NucleoSeq:
         return isinstance(other, NucleoSeq) and self.seq == other
 
     def gc_content(self):
-        G_percent = self.seq.count('G')
-        C_percent = self.seq.count('C')
+        G_percent = (self.seq.count('G') + self.seq.count('g'))
+        C_percent = (self.seq.count('C') + self.seq.count('c'))
         return (G_percent + C_percent) / len(self.seq)
 
 class DNA(NucleoSeq):
@@ -85,20 +85,3 @@ class RNA(NucleoSeq):
     def reverse_complement(self):
         self.temp = self.seq.translate(str.maketrans(self.complement_dictionary))
         return self.temp[::-1]
-
-# пример работы
-monkey = DNA('ATGCCTGctgtcGaatgCNNnn')
-crocodile = RNA('AUGCgaucgGGAUcCCCaaaGCUAa')
-result = monkey.transcribe()
-
-print(monkey.gc_content())
-print(monkey == crocodile)
-print(result.reverse_complement())
-test = list(result)[0:4]
-for i in test:
-    print(i)
-print(next(monkey), '1')
-print(next(monkey), '2')
-print(next(monkey), '3')
-
-Tolstoy = DNA('Величайшие истины — самые простые.')
